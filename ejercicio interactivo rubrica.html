@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Interactivo: Reescritura de Descriptores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .feedback-section {
+            display: none; /* Oculto por defecto */
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            border-radius: 0.25rem;
+        }
+        textarea:focus {
+            border-color: #0d9488; /* Teal-600 */
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-3xl">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-teal-800">Ejercicio de "Reescritura"</h1>
+            <p class="text-md md:text-lg text-gray-600 mt-2">Reescribe cada descriptor vago para que sea específico, observable y útil para un estudiante.</p>
+        </header>
+
+        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg space-y-8">
+
+            <!-- Descriptor 1 -->
+            <div>
+                <label for="original1" class="font-semibold text-gray-500">Descriptor Original 1:</label>
+                <p id="original1" class="mt-1 p-3 bg-red-50 border border-red-200 rounded-md text-red-800">"La presentación está bien organizada."</p>
+                <div class="mt-4">
+                    <label for="rewrite1" class="font-semibold block mb-2">Tu Reescritura:</label>
+                    <textarea id="rewrite1" class="w-full h-24 p-2 border border-gray-300 rounded-md transition" placeholder="Escribe aquí tu versión mejorada..."></textarea>
+                    <div id="feedback1" class="feedback-section">
+                        <h4 class="font-bold">Propuesta del Experto:</h4>
+                        <p>"La presentación tiene una introducción que capta la atención, un cuerpo con ideas que fluyen lógicamente y una conclusión que resume los puntos clave."</p>
+                        <p class="text-sm mt-1 text-gray-600"><strong>Por qué funciona:</strong> Describe acciones observables ("capta la atención", "fluyen lógicamente") en lugar de un juicio de valor ("bien").</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Separator -->
+            <hr>
+
+            <!-- Descriptor 2 -->
+            <div>
+                <label for="original2" class="font-semibold text-gray-500">Descriptor Original 2:</label>
+                <p id="original2" class="mt-1 p-3 bg-red-50 border border-red-200 rounded-md text-red-800">"El estudiante demuestra un conocimiento adecuado del tema."</p>
+                <div class="mt-4">
+                    <label for="rewrite2" class="font-semibold block mb-2">Tu Reescritura:</label>
+                    <textarea id="rewrite2" class="w-full h-24 p-2 border border-gray-300 rounded-md transition" placeholder="Escribe aquí tu versión mejorada..."></textarea>
+                    <div id="feedback2" class="feedback-section">
+                        <h4 class="font-bold">Propuesta del Experto:</h4>
+                        <p>"Explica los conceptos clave del tema de forma precisa y utiliza al menos dos ejemplos relevantes para apoyar las afirmaciones principales."</p>
+                        <p class="text-sm mt-1 text-gray-600"><strong>Por qué funciona:</strong> Define qué significa "conocimiento" en términos de acciones medibles ("explica", "utiliza ejemplos").</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Separator -->
+            <hr>
+
+            <!-- Descriptor 3 -->
+            <div>
+                <label for="original3" class="font-semibold text-gray-500">Descriptor Original 3:</label>
+                <p id="original3" class="mt-1 p-3 bg-red-50 border border-red-200 rounded-md text-red-800">"El uso de recursos visuales es aceptable."</p>
+                <div class="mt-4">
+                    <label for="rewrite3" class="font-semibold block mb-2">Tu Reescritura:</label>
+                    <textarea id="rewrite3" class="w-full h-24 p-2 border border-gray-300 rounded-md transition" placeholder="Escribe aquí tu versión mejorada..."></textarea>
+                    <div id="feedback3" class="feedback-section">
+                        <h4 class="font-bold">Propuesta del Experto:</h4>
+                        <p>"Los apoyos visuales (diapositivas, etc.) son legibles desde cualquier punto del aula, están directamente relacionados con el contenido y refuerzan el mensaje sin sobrecargar de texto."</p>
+                        <p class="text-sm mt-1 text-gray-600"><strong>Por qué funciona:</strong> Reemplaza el término vago "aceptable" por criterios concretos y observables ("legibles", "relacionados", "refuerzan el mensaje").</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Action Button -->
+        <div class="mt-8 text-center">
+            <button id="show-feedback-btn" class="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors shadow-md">
+                Comparar con Propuestas del Experto
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const showFeedbackBtn = document.getElementById('show-feedback-btn');
+        const feedbackSections = document.querySelectorAll('.feedback-section');
+
+        showFeedbackBtn.addEventListener('click', () => {
+            feedbackSections.forEach(section => {
+                section.style.display = 'block';
+            });
+            showFeedbackBtn.textContent = 'Retroalimentación Mostrada';
+            showFeedbackBtn.disabled = true;
+            showFeedbackBtn.classList.add('bg-gray-400', 'hover:bg-gray-400', 'cursor-not-allowed');
+        });
+    </script>
+</body>
+</html>
+```
